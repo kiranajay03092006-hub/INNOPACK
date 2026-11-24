@@ -1,0 +1,477 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: #17181B; /* Obsidian */
+    color: #F5F4F2;            /* Soft White */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom Futuristic Peach & Silver Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #17181B;
+}
+::-webkit-scrollbar-thumb {
+  background: #292B2F;
+  border-radius: 4px;
+  border: 1px solid rgba(216, 218, 221, 0.28);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E9A58F;
+}
+
+/* Technical Atmospheric Grid */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(216, 218, 221, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(216, 218, 221, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.tech-grid-dense {
+  background-image: 
+    linear-gradient(to right, rgba(244, 183, 165, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 183, 165, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* True Glassmorphism: Frosted Translucent Surfaces with Fine Silver Borders */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(41, 43, 47, 0.65) 0%, rgba(23, 24, 27, 0.82) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(216, 218, 221, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(244, 183, 165, 0.45);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(244, 183, 165, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-panel-heavy {
+  background: linear-gradient(135deg, rgba(41, 43, 47, 0.85) 0%, rgba(23, 24, 27, 0.95) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(216, 218, 221, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-peach {
+  background: linear-gradient(135deg, rgba(244, 183, 165, 0.13) 0%, rgba(41, 43, 47, 0.75) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 183, 165, 0.35);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.85), 0 0 30px rgba(244, 183, 165, 0.12);
+}
+
+/* Light Streak Diagonal Glare across Glass */
+.light-streak {
+  position: relative;
+  overflow: hidden;
+}
+.light-streak::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.04) 48%,
+    rgba(244, 183, 165, 0.10) 50%,
+    rgba(255, 255, 255, 0.04) 52%,
+    transparent 55%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+/* Peach Laser Scan Line Effect */
+.laser-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #F4B7A5 50%, transparent 100%);
+  box-shadow: 0 0 15px 3px #F4B7A5, 0 0 30px 6px rgba(244, 183, 165, 0.5);
+  pointer-events: none;
+}
+
+/* Specular Corner Brackets in Peach and Pale Silver */
+.specular-corner {
+  position: relative;
+}
+.specular-corner::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #F4B7A5;
+  border-left: 2px solid #F4B7A5;
+  filter: drop-shadow(0 0 6px #F4B7A5);
+}
+.specular-corner::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #D8DADD;
+  border-right: 2px solid #D8DADD;
+  filter: drop-shadow(0 0 6px #D8DADD);
+}
+
+/* Text Gradients */
+.text-peach-gradient {
+  background: linear-gradient(135deg, #FFF0EC 0%, #F4B7A5 50%, #D98F7B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D8DADD 50%, #AEB3B9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-metallic-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D8DADD 45%, #777E86 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ===================================================
+   BUSYBOX EXACT REPLICATION: CUSTOM CURSOR & UI PATTERNS
+   =================================================== */
+
+/* Custom Cursor */
+.has-cursor, .has-cursor * {
+  cursor: none !important;
+}
+
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+
+.cursor.is-on {
+  opacity: 1;
+}
+
+.cursor__dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: #F4B7A5; /* Soft Peach */
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cursor.is-link .cursor__dot {
+  transform: scale(3.2); /* Expands to 32px */
+}
+
+/* Touch devices & accessibility override */
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+  .has-cursor, .has-cursor * {
+    cursor: auto !important;
+  }
+}
+
+/* BusyBox Button Sweep Underline */
+.bb-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 2px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #F5F4F2;
+  transition: opacity 0.25s ease;
+}
+
+.bb-button::before,
+.bb-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.bb-button::before {
+  background: rgba(216, 218, 221, 0.4);
+  transform-origin: right center;
+}
+
+.bb-button::after {
+  background: #F4B7A5;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.bb-button:hover::before {
+  transform: scaleX(0);
+}
+
+.bb-button:hover::after {
+  transform: scaleX(1);
+  transition-delay: 0.12s;
+}
+
+/* BusyBox Tag Pattern */
+.bb-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid rgba(244, 183, 165, 0.4);
+  background: rgba(244, 183, 165, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #F4B7A5;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+/* BusyBox Problem Card Corner Brackets */
+.bb-corner-bracket {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+.bb-corner-tl {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid #F4B7A5;
+  border-left: 1.5px solid #F4B7A5;
+}
+.bb-corner-tr {
+  top: 0;
+  right: 0;
+  border-top: 1.5px solid #F4B7A5;
+  border-right: 1.5px solid #F4B7A5;
+}
+.bb-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1.5px solid rgba(216, 218, 221, 0.5);
+  border-left: 1.5px solid rgba(216, 218, 221, 0.5);
+}
+.bb-corner-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid rgba(216, 218, 221, 0.5);
+  border-right: 1.5px solid rgba(216, 218, 221, 0.5);
+}
+
+/* BusyBox Nav Link Asterisk and Underline */
+.bb-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #D8DADD;
+  transition: color 0.25s ease;
+  padding: 4px 0;
+}
+.bb-nav-item:hover, .bb-nav-item.is-active {
+  color: #F4B7A5;
+}
+.bb-nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: #F4B7A5;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.bb-nav-item:hover::after, .bb-nav-item.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+.bb-nav-star {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: #F4B7A5;
+  transition: max-width 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+.bb-nav-item:hover .bb-nav-star, .bb-nav-item.is-active .bb-nav-star {
+  max-width: 14px;
+  opacity: 1;
+  margin-left: 2px;
+}
+
+/* BusyBox 3D Isometric Cube & Coordinate Hairlines */
+.c3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 55.34px;
+  height: 56.71px;
+  margin: -28.35px 0 0 -27.67px;
+  pointer-events: none;
+  z-index: 10;
+}
+.c3__cube {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-36.236deg) rotateY(calc(45deg + var(--ry, 0deg)));
+  transition: transform 0.15s ease-out;
+}
+.c3__f {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.c3__s, .c3__d {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.c3__s {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.06));
+}
+.c3__f--front { transform: translateZ(27.67px); }
+.c3__f--back { transform: rotateY(180deg) translateZ(27.67px); }
+.c3__f--right { transform: rotateY(90deg) translateZ(27.67px); }
+.c3__f--left { transform: rotateY(-90deg) translateZ(27.67px); }
+.c3__f--top {
+  top: 0.68px;
+  bottom: auto;
+  height: 55.34px;
+  transform: rotateX(90deg) translateZ(28.35px);
+}
+.c3__f--top .c3__s {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+}
+.c3__f--bottom {
+  top: 0.68px;
+  bottom: auto;
+  height: 55.34px;
+  transform: rotateX(-90deg) translateZ(28.35px);
+}
+.c3__edges {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px 0 0 -80px;
+  overflow: visible;
+  pointer-events: none;
+}
+.c3__solid {
+  stroke: #F2E3E0E6;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.c3__dash {
+  stroke: #F2E3E08C;
+  stroke-width: 1;
+  stroke-dasharray: 3 2.5;
+}
+.c3__back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px 0 0 -80px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background: rgba(14, 4, 2, 0.45);
+  clip-path: polygon(40.9px 57.1px, 80px 34px, 119.1px 57.1px, 119.1px 102.9px, 80px 126px, 40.9px 102.9px);
+}
+.hero__axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% + 9.5px);
+  height: 1px;
+  background: #F2E3E0;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 5;
+}
+.hero__axis--v {
+  left: calc(50% - 0.5px);
+  right: auto;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  height: auto;
+  transform-origin: 50% calc(50% + 10px);
+}
+
